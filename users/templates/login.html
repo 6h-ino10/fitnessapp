@@ -1,6 +1,11 @@
 {% extends "base.html" %}
-
 {% block title %}ログイン{% endblock %}
+{% block sectiontitle %}ログイン{% endblock %}
 {% block content %}
-    <h2>ログイン</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="{% url 'signup' %}" class="link-secondary">新規登録</a>
+        <button type="submit" class="btn btn-danger w-100">ログイン</button>            
+    </form>
 {% endblock %}
