@@ -28,13 +28,7 @@ class SignupView(CreateView):
     success_url = reverse_lazy('signup_complete')
 
     def form_valid(self, form):
-        #print("form_valid executed")
-        #if form.is_valid():
-        form.save()
-        return redirect('signup_complete')
-        #else:
-        #    print(form.errors)
-        #    return self.form_invalid(form)
+        return super().form_valid(form)
         
     def form_invalid(self,form):
         print("form_invalid executed")
