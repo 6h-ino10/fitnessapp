@@ -21,7 +21,7 @@ def fetch_and_save_exercise_data():
                     exercise_id=exercise_id,
                     defaults={
                         'name':name,
-                        'target_muscled':target_muscles,
+                        'target_muscles':target_muscles,
                         'gif_url':gif_url,
                         'calories_burned':calories_burned,
                     }
