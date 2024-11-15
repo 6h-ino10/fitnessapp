@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}栄養情報取得{% endblock %}
+{% block content %}
+    <h1>レシピのURLからの栄養情報を取得</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">送信</button>
+    </form>
+
+    {% if nutrition_data %}
+        <h2>栄養情報</h2>
+        <p>カロリー：{{ nutrition_data.calories }}</p>
+        <p>栄養素：{{ nutrition_data.totalNutrients }}</p>
+    {% elif error_message %}
+    <p style="color:red;">{{ error_message }}</p>
+    {% endif %}
+{% endblock %}
