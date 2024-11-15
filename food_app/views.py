@@ -8,7 +8,7 @@ def get_recipe_nutrition(request):
     nutrition_data = None
     error_message = None
 
-    if get_recipe_nutrition(request):
+    if request.method == 'POST':
         form = RecipeURLForm(request.POST)
         if form.is_valid():
             url = form.cleaned_data['url']
@@ -19,8 +19,8 @@ def get_recipe_nutrition(request):
 
             headers = {"Content-Type":"application/json"}
             payload = {
-                "title":"Recipe form external site",
-                "ingr":[1 serving],
+                "title":"Recipe from external site",
+                "ingr":["1 serving"],
                 "url":url
                 }
 
